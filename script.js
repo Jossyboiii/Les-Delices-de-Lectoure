@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ── SMOOTH SCROLL ──
-     Uses scrollIntoView on the target then manually corrects for
-     the fixed navbar — most reliable cross-browser approach. */
+     setTimeout(0) pushes the scrollTo call off the synchronous click
+     event, which fixes Chrome desktop ignoring behavior:'smooth'. */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -63,9 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       closeMenu();
-      const navH  = navbar.offsetHeight + 16;
-      const top   = target.getBoundingClientRect().top + window.pageYOffset - navH;
-      window.scrollTo({ top, behavior: 'smooth' });
+      setTimeout(() => {
+        const navH = navbar.offsetHeight + 16;
+        const top  = target.getBoundingClientRect().top + window.pageYOffset - navH;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }, 0);
     });
   });
 
