@@ -490,36 +490,8 @@ a    { color: inherit; text-decoration: none; }
 /* ================================================
    FACEBOOK
    ================================================ */
-.facebook { padding: 100px 0; background: var(--cream); }
+/* (social cards CSS in accent section below) */
 
-.facebook-inner {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  gap: 72px;
-  align-items: center;
-}
-
-.facebook-text .section-title { margin-bottom: 20px; }
-
-.facebook-desc {
-  color: var(--text-light);
-  font-size: 1rem;
-  line-height: 1.8;
-  max-width: 420px;
-  margin-bottom: 36px;
-}
-
-.facebook-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-
-.fb-frame-wrap {
-  width: 480px;
-  height: 500px;
-  flex-shrink: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  background: var(--white);
-}
 
 
 /* ================================================
@@ -614,28 +586,152 @@ a    { color: inherit; text-decoration: none; }
 
 
 /* ================================================
-   PRODUCT CARD & AVIS ACCENT COLOURS
+   SOCIAL CARDS (replaces Facebook iframe embed)
    ================================================ */
+.facebook { padding: 100px 0; background: var(--cream); }
 
-/* Specialties card titles: orange · brown · green */
-.produits-grid--trois .produit-card:nth-child(1) .produit-body h3 { color: var(--orange); }
-.produits-grid--trois .produit-card:nth-child(2) .produit-body h3 { color: var(--brown-dark); }
-.produits-grid--trois .produit-card:nth-child(3) .produit-body h3 { color: var(--green); }
+.social-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-/* Overall Google rating number — orange */
-.note { color: var(--orange); }
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 36px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .3s ease, box-shadow .3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.social-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.social-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.social-card:hover::before { opacity: 1; }
 
-/* Nav active underline — orange */
-.nav-links a::after { background: var(--orange); }
+/* Facebook — orange accent */
+.social-card--fb {
+  background: #fff8f2;
+  border-color: rgba(201,122,32,.25);
+}
+.social-card--fb::before {
+  background: linear-gradient(135deg, rgba(201,122,32,.06), transparent);
+}
+.social-card--fb .social-card-icon { color: var(--orange); }
+.social-card--fb .social-card-cta  { color: var(--orange); }
+
+/* Instagram — green accent */
+.social-card--ig {
+  background: #f5faf0;
+  border-color: rgba(74,128,24,.25);
+}
+.social-card--ig::before {
+  background: linear-gradient(135deg, rgba(74,128,24,.06), transparent);
+}
+.social-card--ig .social-card-icon { color: var(--green); }
+.social-card--ig .social-card-cta  { color: var(--green); }
+
+.social-card-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.social-card-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--brown-dark);
+  margin-bottom: 2px;
+}
+.social-card-handle {
+  font-size: .8rem;
+  letter-spacing: .06em;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.social-card-desc {
+  font-size: .92rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.social-card-cta {
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+/* ── Accent: orange left-border on apropos text ── */
+.apropos-text .section-title em { color: var(--orange); }
+
+/* ── Accent: orange underline rule under hero eyebrow ── */
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--orange);
+  margin-top: 8px;
+}
+
+/* ── Accent: section top-border dividers (orange on odd, green on even) ── */
+.produits    { border-top: 3px solid var(--orange); }
+.apropos     { border-top: 3px solid var(--green); }
+.localisation { border-top: 3px solid var(--orange); }
+.avis        { border-top: 3px solid var(--green); }
+.facebook    { border-top: 3px solid var(--orange); }
+.contact     { border-top: 3px solid var(--green); }
+
+/* ── Accent: orange border on focused form inputs ── */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(201,122,32,.12);
+}
+
+/* ── Accent: green horaires caption (was already green, reinforce) ── */
+.horaires-table caption { color: var(--green); }
+
+/* ── Accent: orange dot on open hours, green on closed ── */
+.horaires-table tr:not(.closed) td:first-child::before {
+  content: '●';
+  color: var(--green);
+  font-size: .55rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.horaires-table tr.closed td:first-child::before {
+  content: '●';
+  color: var(--orange);
+  font-size: .55rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ── Accent: orange star color ── */
+.stars, .avis-stars-small { color: var(--orange); }
 
 
 /* ================================================
-   RESPONSIVE
+   RESPONSIVE (updated)
    ================================================ */
 
 @media (max-width: 1060px) {
-  .facebook-inner  { grid-template-columns: 1fr; gap: 48px; }
-  .fb-frame-wrap   { width: 100%; max-width: 480px; }
+  .social-cards    { grid-template-columns: 1fr; max-width: 540px; }
   .commandes-inner { grid-template-columns: 1fr; gap: 32px; }
   .commandes-icon  { display: none; }
 }
@@ -670,6 +766,7 @@ a    { color: inherit; text-decoration: none; }
   .produits-grid    { grid-template-columns: 1fr 1fr; }
   .produits-grid--trois { grid-template-columns: 1fr; }
   .hero-buttons     { flex-direction: column; align-items: flex-start; }
+  .social-card      { padding: 24px; }
 }
 
 @media (max-width: 420px) {

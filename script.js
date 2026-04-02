@@ -1,11 +1,18 @@
 /* ================================================
-   Les Délices de Lectoure — JavaScript (fixed)
+   Les Délices de Lectoure — JavaScript
    ================================================ */
 
-/* ── Page load fade-in ── */
+/* ── Page load fade-in ──
+   Body starts opacity:0 via CSS. We use rAF double-pump
+   to guarantee the browser has painted the invisible state
+   before we add the transition class, so the fade always fires. */
 window.addEventListener('load', () => {
-  document.body.classList.remove('page-loading');
-  document.body.classList.add('page-loaded');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.body.classList.remove('page-loading');
+      document.body.classList.add('page-loaded');
+    });
+  });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ── SMOOTH SCROLL ── */
+  /* ── SMOOTH SCROLL ──
+     Uses scrollIntoView on the target then manually corrects for
+     the fixed navbar — most reliable cross-browser approach. */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -54,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       closeMenu();
-      const offset = navbar.offsetHeight + 8;
-      const top    = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      const navH  = navbar.offsetHeight + 16;
+      const top   = target.getBoundingClientRect().top + window.pageYOffset - navH;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
@@ -129,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll(
     '.produit-card, .avis-card, .apropos-text, .apropos-img, ' +
-    '.contact-info, .contact-form, .facebook-text, .commandes-text'
+    '.contact-info, .contact-form, .facebook-text, .commandes-text, .social-card'
   );
 
   const revealObserver = new IntersectionObserver((entries) => {
