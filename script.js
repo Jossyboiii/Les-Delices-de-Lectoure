@@ -1,26 +1,41 @@
 /* ================================================
-   Les Délices de Lectoure — JavaScript
+   Les Délices de Lectoure — JavaScript (fixed)
    ================================================ */
+
+/* ── Page load fade-in ── */
+window.addEventListener('load', () => {
+  document.body.classList.remove('page-loading');
+  document.body.classList.add('page-loaded');
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 
   const navbar = document.getElementById('navbar');
 
-  // ── NAVBAR: shadow on scroll ──
+  /* ── NAVBAR: shadow on scroll ── */
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 
 
-  // ── MOBILE MENU TOGGLE ──
+  /* ── MOBILE MENU TOGGLE ── */
   const navToggle = document.getElementById('navToggle');
   const navMenu   = document.getElementById('navLinks');
 
+  function closeMenu() {
+    navMenu.classList.remove('open');
+    navToggle.classList.remove('is-open');
+    navToggle.querySelectorAll('span').forEach(s => {
+      s.style.transform = '';
+      s.style.opacity   = '';
+    });
+  }
+
   navToggle.addEventListener('click', () => {
-    const open = navMenu.classList.toggle('open');
-    navToggle.classList.toggle('is-open', open);
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('is-open', isOpen);
     const spans = navToggle.querySelectorAll('span');
-    if (open) {
+    if (isOpen) {
       spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
       spans[1].style.opacity   = '0';
       spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
@@ -29,37 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function closeMenu() {
-    navMenu.classList.remove('open');
-    navToggle.classList.remove('is-open');
-    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-  }
 
-
-  // ── SMOOTH SCROLL ──
-  // Intercepts all anchor clicks and scrolls smoothly,
-  // accounting for the fixed navbar height.
+  /* ── SMOOTH SCROLL ── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const href   = this.getAttribute('href');
+      const href = this.getAttribute('href');
+      if (href === '#') return;
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
       closeMenu();
-      const offset = navbar.offsetHeight + 8; // 8px breathing room
+      const offset = navbar.offsetHeight + 8;
       const top    = target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
 
-  // ── ACTIVE NAV HIGHLIGHT ──
-  // Simple, reliable approach: on every scroll tick, find which
-  // section's top edge is closest to (and above) the nav bottom.
-  // Only sections that have a matching nav link are tracked.
+  /* ── ACTIVE NAV HIGHLIGHT (scroll spy) ── */
   const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
 
-  // Build a map: section element → nav link
   const sectionLinkMap = [];
   navLinks.forEach(link => {
     const id  = link.getAttribute('href').replace('#', '');
@@ -68,29 +72,35 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateActiveLink() {
-    const trigger = navbar.offsetHeight + 40; // how far from top counts as "active"
+    const trigger = navbar.offsetHeight + 60;
     let active = null;
-
     sectionLinkMap.forEach(({ sec, link }) => {
-      const top = sec.getBoundingClientRect().top;
-      // Section has scrolled into or past the trigger line
-      if (top <= trigger) active = link;
+      if (sec.getBoundingClientRect().top <= trigger) active = link;
     });
-
     navLinks.forEach(l => l.classList.remove('active'));
     if (active) active.classList.add('active');
   }
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink(); // run once on load
+  updateActiveLink();
 
 
-  // ── CONTACT FORM (async Formspree) ──
+  /* ── CONTACT FORM (async Formspree + reCAPTCHA check) ── */
   const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
+
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (typeof grecaptcha !== 'undefined') {
+        const token = grecaptcha.getResponse();
+        if (!token) {
+          alert("Veuillez confirmer que vous n'êtes pas un robot.");
+          return;
+        }
+      }
+
       const btn = form.querySelector('[type="submit"]');
       try {
         btn.textContent = 'Envoi en cours…';
@@ -102,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (res.ok) {
           form.reset();
+          if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
           if (success) success.classList.add('visible');
           btn.textContent = 'Message envoyé !';
         } else {
@@ -115,9 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ── SCROLL REVEAL ──
+  /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll(
-    '.produit-card, .avis-card, .apropos-text, .apropos-img, .contact-info, .contact-form, .facebook-text, .commandes-text'
+    '.produit-card, .avis-card, .apropos-text, .apropos-img, ' +
+    '.contact-info, .contact-form, .facebook-text, .commandes-text'
   );
 
   const revealObserver = new IntersectionObserver((entries) => {

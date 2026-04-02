@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" style="scroll-behavior:smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,7 +46,7 @@
   }
   </script>
 </head>
-<body>
+<body class="page-loading">
 
   <!-- ============================
        NAVIGATION
@@ -354,6 +354,8 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
         </div>
+        <!-- reCAPTCHA v2 — replace data-sitekey with your own key from https://www.google.com/recaptcha/admin -->
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom:8px;"></div>
         <button type="submit" class="btn btn-dark btn-full">Envoyer le message</button>
         <p class="form-success" id="formSuccess">Message envoyé ! Nous vous répondrons rapidement.</p>
       </form>
@@ -380,4 +382,16 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
           </a>
           <a href="https://www.instagram.com/lesdelices_delectoure.32700/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><c
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 Les Délices de Lectoure — EURL Croustipain. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Google reCAPTCHA v2 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
