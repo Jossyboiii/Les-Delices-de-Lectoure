@@ -67,7 +67,9 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#apropos">À propos</a></li>
-        <li><a href="#localisation">Localisation & Horaires</a></li>
+        <li><a href="#produits">Nos spécialités</a></li>
+        <li><a href="#salon">Salon de thé</a></li>
+        <li><a href="#localisation">Localisation</a></li>
         <li><a href="#avis">Avis</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -78,7 +80,6 @@
        SECTION 1 — HERO
        ============================ -->
   <section id="accueil" class="hero">
-    <!-- Replace URL with your own hero photo -->
     <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=80')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -93,15 +94,93 @@
     </div>
   </section>
 
-  <!-- PRODUITS PHARES -->
-  <section class="produits">
+  <!-- ============================
+       SECTION 2 — À PROPOS (Histoire + Pourquoi nous choisir)
+       ============================ -->
+  <section id="apropos" class="apropos">
+    <div class="container apropos-inner">
+      <div class="apropos-text">
+        <p class="section-eyebrow">Notre histoire</p>
+        <h2 class="section-title">Un savoir-faire<br /><em>transmis avec passion</em></h2>
+        <p>Nichée au cœur de la bastide de Lectoure, Les Délices de Lectoure est bien plus qu'une boulangerie. C'est un lieu de vie, de partage et de gourmandise, où chaque produit est façonné avec soin dès l'aube.</p>
+        <p>Nous sélectionnons nos farines chez des meuniers locaux, nos fruits chez les producteurs du Gers, et nous respectons des temps de fermentation longs pour des pains à la saveur incomparable.</p>
+        <p>Depuis notre ouverture, notre boulangerie est devenue un rendez-vous incontournable pour les habitants de Lectoure et les visiteurs de passage. Nous sommes fiers d'incarner la tradition artisanale française dans notre belle région gasconne.</p>
+      </div>
+      <div class="apropos-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80')">
+        <div class="apropos-img-badge">Fait maison<br />chaque jour</div>
+      </div>
+    </div>
+
+    <!-- Pourquoi nous choisir strip -->
+    <div class="container">
+      <div class="pourquoi-strip">
+        <p class="section-eyebrow centered-eyebrow pourquoi-eyebrow">Pourquoi nous choisir ?</p>
+        <div class="pourquoi-grid">
+          <div class="pourquoi-card">
+            <div class="pourquoi-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="var(--orange)" fill-opacity="0.10"/>
+                <path d="M24 12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 4a2 2 0 110 4 2 2 0 010-4zm3 16h-6v-2h2v-8h-2v-2h4v10h2v2z" fill="var(--orange)"/>
+              </svg>
+            </div>
+            <h4>Ingrédients de qualité</h4>
+            <p>Farines locales, fruits du Gers, beurre sélectionné — des produits choisis avec soin pour chaque préparation.</p>
+          </div>
+          <div class="pourquoi-card">
+            <div class="pourquoi-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="var(--green)" fill-opacity="0.10"/>
+                <path d="M24 10a2 2 0 00-2 2v2a2 2 0 104 0v-2a2 2 0 00-2-2zm0 8c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm-12 4a2 2 0 100 4 2 2 0 000-4zm24 0a2 2 0 100 4 2 2 0 000-4zM12.686 13.272a2 2 0 10-2.828 2.828l1.414 1.414a2 2 0 002.828-2.828l-1.414-1.414zm24.456 0l-1.414 1.414a2 2 0 002.828 2.828l1.414-1.414a2 2 0 00-2.828-2.828zM22 34v2a2 2 0 104 0v-2a2 2 0 10-4 0z" fill="var(--green)"/>
+              </svg>
+            </div>
+            <h4>Frais chaque matin</h4>
+            <p>Pains et viennoiseries cuits dès l'aube, chaque jour de la semaine. Ce qui arrive en boutique est fait ce matin.</p>
+          </div>
+          <div class="pourquoi-card">
+            <div class="pourquoi-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="var(--orange)" fill-opacity="0.10"/>
+                <path d="M24 14c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm1 14.83V30h-2v-1.17A5.002 5.002 0 0119 24c0-2.757 2.243-5 5-5s5 2.243 5 5a5.002 5.002 0 01-4 4.83zM22 24a2 2 0 104 0 2 2 0 00-4 0z" fill="var(--orange)"/>
+              </svg>
+            </div>
+            <h4>Savoir-faire artisanal</h4>
+            <p>Des recettes traditionnelles, des temps de fermentation respectés, et des gestes transmis de génération en génération.</p>
+          </div>
+          <div class="pourquoi-card">
+            <div class="pourquoi-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="var(--green)" fill-opacity="0.10"/>
+                <path d="M30 14H18a2 2 0 00-2 2v4a2 2 0 002 2h12a2 2 0 002-2v-4a2 2 0 00-2-2zm-10 4v-2h8v2H20zm10 4H18a2 2 0 00-2 2v4a2 2 0 002 2h12a2 2 0 002-2v-4a2 2 0 00-2-2zm-10 4v-2h8v2H20z" fill="var(--green)"/>
+              </svg>
+            </div>
+            <h4>Commandes sur mesure</h4>
+            <p>Mariages, anniversaires, réceptions — nous créons pièces montées et assortiments personnalisés selon vos envies.</p>
+          </div>
+          <div class="pourquoi-card">
+            <div class="pourquoi-icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="22" fill="var(--orange)" fill-opacity="0.10"/>
+                <path d="M24 12c-6.627 0-12 5.373-12 12 0 2.655.875 5.107 2.344 7.094L12 36l5.094-2.344A11.952 11.952 0 0024 36c6.627 0 12-5.373 12-12s-5.373-12-12-12zm-5 13a2 2 0 110-4 2 2 0 010 4zm5 0a2 2 0 110-4 2 2 0 010 4zm5 0a2 2 0 110-4 2 2 0 010 4z" fill="var(--orange)"/>
+              </svg>
+            </div>
+            <h4>Accueil chaleureux</h4>
+            <p>Une équipe à l'écoute, un service de proximité et une atmosphère conviviale qui fait de chaque visite un moment agréable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SECTION 3 — SPÉCIALITÉS
+       ============================ -->
+  <section id="produits" class="produits">
     <div class="container">
       <p class="section-eyebrow centered-eyebrow">Nos spécialités</p>
       <h2 class="section-title centered-title">Fait maison,<br /><em>chaque matin</em></h2>
       <div class="produits-grid produits-grid--trois">
 
         <div class="produit-card">
-          <!-- ── Replace URL with your own viennoiseries photo ── -->
           <div class="produit-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80')"></div>
           <div class="produit-body">
             <h3>Viennoiseries</h3>
@@ -110,7 +189,6 @@
         </div>
 
         <div class="produit-card">
-          <!-- ── Replace URL with your own pain photo ── -->
           <div class="produit-img" style="background-image: url('https://images.unsplash.com/photo-1549931319-a545dcf3bc7c?w=600&q=80')"></div>
           <div class="produit-body">
             <h3>Pains</h3>
@@ -119,7 +197,6 @@
         </div>
 
         <div class="produit-card">
-          <!-- ── Replace URL with your own pâtisseries photo ── -->
           <div class="produit-img" style="background-image: url('https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=80')"></div>
           <div class="produit-body">
             <h3>Pâtisseries</h3>
@@ -128,11 +205,6 @@
         </div>
 
       </div>
-
-      <!-- Coffee mention -->
-      <p class="produits-café">
-        ☕ &nbsp;Salon de thé sur place — cafés, thés, chocolats chauds servis toute la journée.
-      </p>
     </div>
   </section>
 
@@ -148,17 +220,13 @@
       </div>
       <div class="commandes-icon">
         <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <!-- Cake tiers -->
           <rect x="30" y="72" width="60" height="28" rx="6" fill="#f0e8d8" stroke="#8b6240" stroke-width="2"/>
           <rect x="38" y="48" width="44" height="26" rx="5" fill="#faf6f0" stroke="#8b6240" stroke-width="2"/>
           <rect x="46" y="28" width="28" height="22" rx="4" fill="#f0e8d8" stroke="#8b6240" stroke-width="2"/>
-          <!-- Candles -->
           <rect x="54" y="18" width="4" height="12" rx="2" fill="#c97a20"/>
           <rect x="62" y="18" width="4" height="12" rx="2" fill="#4a8018"/>
-          <!-- Flames -->
           <ellipse cx="56" cy="16" rx="2.5" ry="3.5" fill="#E8820C" opacity=".9"/>
           <ellipse cx="64" cy="16" rx="2.5" ry="3.5" fill="#E8820C" opacity=".9"/>
-          <!-- Decoration dots -->
           <circle cx="45" cy="84" r="3" fill="#c97a20"/>
           <circle cx="60" cy="84" r="3" fill="#4a8018"/>
           <circle cx="75" cy="84" r="3" fill="#c97a20"/>
@@ -166,27 +234,31 @@
       </div>
     </div>
   </section>
+
   <!-- ============================
-       SECTION 2 — À PROPOS
+       SECTION 4 — SALON DE THÉ
        ============================ -->
-  <section id="apropos" class="apropos">
-    <div class="container apropos-inner">
-      <div class="apropos-text">
-        <p class="section-eyebrow">Notre histoire</p>
-        <h2 class="section-title">Un savoir-faire<br /><em>transmis avec passion</em></h2>
-        <p>Nichée au cœur de la bastide de Lectoure, Les Délices de Lectoure est bien plus qu'une boulangerie. C'est un lieu de vie, de partage et de gourmandise, où chaque produit est façonné avec soin dès l'aube.</p>
-        <p>Nous sélectionnons nos farines chez des meuniers locaux, nos fruits chez les producteurs du Gers, et nous respectons des temps de fermentation longs pour des pains à la saveur incomparable.</p>
-        <p>Depuis notre ouverture, notre boulangerie est devenue un rendez-vous incontournable pour les habitants de Lectoure et les visiteurs de passage. Nous sommes fiers d'incarner la tradition artisanale française dans notre belle région gasconne.</p>
-      </div>
-      <!-- Replace URL with your own bakery photo -->
-      <div class="apropos-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80')">
-        <div class="apropos-img-badge">Fait maison<br />chaque jour</div>
+  <section id="salon" class="salon-the">
+    <div class="salon-bg" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&q=80')"></div>
+    <div class="salon-overlay"></div>
+    <div class="container salon-inner">
+      <div class="salon-content">
+        <p class="section-eyebrow">Sur place</p>
+        <h2 class="section-title">Salon de thé<br /><em>& espace détente</em></h2>
+        <p class="salon-desc">Prolongez votre visite dans notre espace salon de thé, où vous pouvez vous installer confortablement pour savourer un café, un thé parfumé ou un chocolat chaud accompagné de nos pâtisseries du jour.</p>
+        <p class="salon-desc">Un moment de douceur, au calme, au cœur de Lectoure — ouvert toute la journée pour les petits-déjeuners, les pauses gourmandes et les goûters.</p>
+        <div class="salon-features">
+          <span class="salon-tag">☕ Cafés &amp; expressos</span>
+          <span class="salon-tag">🍵 Thés &amp; infusions</span>
+          <span class="salon-tag">🍫 Chocolats chauds</span>
+          <span class="salon-tag">🥐 Viennoiseries sur place</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================
-       SECTION 3 — LOCALISATION & HORAIRES
+       SECTION 5 — LOCALISATION & HORAIRES
        ============================ -->
   <section id="localisation" class="localisation">
     <div class="container">
@@ -225,7 +297,6 @@
           </a>
         </div>
 
-
         <div class="map-container">
           <iframe
             title="Carte Les Délices de Lectoure"
@@ -238,7 +309,7 @@
   </section>
 
   <!-- ============================
-       SECTION 4 — AVIS CLIENTS
+       SECTION 6 — AVIS CLIENTS
        ============================ -->
   <section id="avis" class="avis">
     <div class="container avis-centered">
@@ -283,7 +354,52 @@
   </section>
 
   <!-- ============================
-       SECTION 5 — FACEBOOK
+       SECTION 7 — CONTACT
+       ============================ -->
+  <section id="contact" class="contact">
+    <div class="container contact-inner">
+
+      <div class="contact-info">
+        <p class="section-eyebrow">Écrivez-nous</p>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18C.01.11.99.01 2.07.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91A16 16 0 0014.09 15l.41-.41a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+33562687995">05 62 68 79 95</a>
+          </div>
+          <div class="contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:croustipain2002@gmail.com">croustipain2002@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>15 rue Alsace Lorraine, 32700 Lectoure</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdaplved" method="POST">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark btn-full">Envoyer le message</button>
+        <p class="form-success" id="formSuccess">Message envoyé ! Nous vous répondrons rapidement.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       SECTION 8 — FACEBOOK (last)
        ============================ -->
   <section id="facebook" class="facebook">
     <div class="container">
@@ -314,52 +430,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- ============================
-       SECTION 6 — CONTACT
-       ============================ -->
-  <section id="contact" class="contact">
-    <div class="container contact-inner">
-
-      <div class="contact-info">
-        <p class="section-eyebrow">Écrivez-nous</p>
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-details">
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18C.01.11.99.01 2.07.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91A16 16 0 0014.09 15l.41-.41a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <a href="tel:+33562687995">05 62 68 79 95</a>
-          </div>
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:croustipain2002@gmail.com">croustipain2002@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>15 rue Alsace Lorraine, 32700 Lectoure</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Wire to Formspree: sign up at formspree.io, get a form ID, replace the action URL -->
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdaplved" method="POST">
-        <div class="form-group">
-          <label for="name">Nom</label>
-          <input type="text" id="name" name="name" placeholder="Votre nom" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark btn-full">Envoyer le message</button>
-        <p class="form-success" id="formSuccess">Message envoyé ! Nous vous répondrons rapidement.</p>
-      </form>
-
     </div>
   </section>
 

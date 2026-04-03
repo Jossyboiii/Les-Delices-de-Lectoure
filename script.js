@@ -2,10 +2,7 @@
    Les Délices de Lectoure — JavaScript
    ================================================ */
 
-/* ── Page load fade-in ──
-   Body starts opacity:0 via CSS. We use rAF double-pump
-   to guarantee the browser has painted the invisible state
-   before we add the transition class, so the fade always fires. */
+/* ── Page load fade-in ── */
 window.addEventListener('load', () => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
@@ -52,9 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  /* ── SMOOTH SCROLL ──
-     setTimeout(0) pushes the scrollTo call off the synchronous click
-     event, which fixes Chrome desktop ignoring behavior:'smooth'. */
+  /* ── SMOOTH SCROLL ── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -132,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll(
     '.produit-card, .avis-card, .apropos-text, .apropos-img, ' +
-    '.contact-info, .contact-form, .facebook-text, .commandes-text, .social-card'
+    '.contact-info, .contact-form, .facebook-text, .commandes-text, ' +
+    '.pourquoi-card, .salon-content'
   );
 
   const revealObserver = new IntersectionObserver((entries) => {
@@ -145,17 +141,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.1 });
 
-  revealEls.forEach(el => {
+  revealEls.forEach((el, i) => {
     el.style.opacity    = '0';
     el.style.transform  = 'translateY(24px)';
-    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    // Stagger pourquoi cards slightly
+    const delay = el.classList.contains('pourquoi-card') ? `${(i % 5) * 0.08}s` : '0s';
+    el.style.transition = `opacity 0.55s ease ${delay}, transform 0.55s ease ${delay}`;
     revealObserver.observe(el);
   });
 
 
-  /* ── OPENING STATUS BADGE ──
-     Closed Tuesday. Open 06:30–19:30 all other days.
-     Uses local browser time — accurate enough for a local business. */
+  /* ── OPENING STATUS BADGE ── */
   const statusEl = document.getElementById('openStatus');
   if (statusEl) {
     const now     = new Date();
