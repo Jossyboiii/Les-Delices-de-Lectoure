@@ -1100,6 +1100,8 @@ a    { color: inherit; text-decoration: none; }
   .hero-buttons     { flex-direction: column; align-items: flex-start; }
   .salon-the        { min-height: 480px; }
   .salon-features   { gap: 8px; }
+  .salon-content    { width: 100%; }
+  .salon-inner      { justify-content: flex-start; }
   .pourquoi-grid    { grid-template-columns: 1fr 1fr; }
   .modal-box        { padding: 32px 24px; }
 }
