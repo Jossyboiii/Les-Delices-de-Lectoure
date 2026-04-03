@@ -96,34 +96,32 @@ document.addEventListener('DOMContentLoaded', () => {
   updateActiveLink();
 
 
-  /* ── CONTACT FORM (async Formspree + reCAPTCHA check) ── */
+  /* ── CONTACT FORM (async Formspree + reCAPTCHA v3) ── */
   const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
 
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      if (typeof grecaptcha !== 'undefined') {
-        const token = grecaptcha.getResponse();
-        if (!token) {
-          alert("Veuillez confirmer que vous n'êtes pas un robot.");
-          return;
-        }
-      }
-
       const btn = form.querySelector('[type="submit"]');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled    = true;
+
       try {
-        btn.textContent = 'Envoi en cours…';
-        btn.disabled    = true;
+        // Get v3 token invisibly — no user interaction needed
+        const token = await grecaptcha.execute('6Leg1aMsAAAAAJ29f6KHtar0KmLrYe2dOgBD0mlN', { action: 'contact' });
+
+        const body = new FormData(form);
+        body.append('g-recaptcha-response', token);
+
         const res = await fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
+          body,
           headers: { 'Accept': 'application/json' }
         });
+
         if (res.ok) {
           form.reset();
-          if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
           if (success) success.classList.add('visible');
           btn.textContent = 'Message envoyé !';
         } else {
