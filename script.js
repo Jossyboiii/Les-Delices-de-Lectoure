@@ -3,6 +3,34 @@
    ================================================ */
 
 /* ── Page load fade-in ── */
+/* ── GRAIN TEXTURE ── */
+(function () {
+  const canvas = document.getElementById('grainCanvas');
+  if (!canvas) return;
+  const size = 200;
+  canvas.width  = size;
+  canvas.height = size;
+  canvas.style.width  = '100vw';
+  canvas.style.height = '100vh';
+  const ctx = canvas.getContext('2d');
+  const img = ctx.createImageData(size, size);
+  for (let i = 0; i < img.data.length; i += 4) {
+    const v = Math.random() * 255 | 0;
+    img.data[i]     = v;
+    img.data[i + 1] = v;
+    img.data[i + 2] = v;
+    img.data[i + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  // Tile it as a CSS background instead — more performant
+  canvas.style.display = 'none';
+  document.body.style.setProperty('--grain-url', `url(${canvas.toDataURL()})`);
+  // Apply via a style tag
+  const style = document.createElement('style');
+  style.textContent = `body::after { content:''; position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:.06; background-image:var(--grain-url); background-size:200px 200px; mix-blend-mode:multiply; }`;
+  document.head.appendChild(style);
+})();
+
 window.addEventListener('load', () => {
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
