@@ -108,8 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled    = true;
 
       try {
-        // Get v3 token invisibly — no user interaction needed
-        const token = await grecaptcha.execute('6Leg1aMsAAAAAJ29f6KHtar0KmLrYe2dOgBD0mlN', { action: 'contact' });
+        // Wait for reCAPTCHA v3 to be fully ready before executing
+        const token = await new Promise((resolve, reject) => {
+          grecaptcha.ready(async () => {
+            try {
+              const t = await grecaptcha.execute('6Leg1aMsAAAAAJ29f6KHtar0KmLrYe2dOgBD0mlN', { action: 'contact' });
+              resolve(t);
+            } catch (err) {
+              reject(err);
+            }
+          });
+        });
 
         const body = new FormData(form);
         body.append('g-recaptcha-response', token);
