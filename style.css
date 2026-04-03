@@ -174,12 +174,11 @@ a    { color: inherit; text-decoration: none; }
   position: absolute;
   bottom: -3px; left: 0;
   width: 0; height: 1.5px;
-  background: var(--orange);
-  transition: width .25s ease, background .2s ease;
+  background: var(--green);
+  transition: width .25s ease;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--brown-dark); }
-.nav-links a:hover::after { width: 100%; }
-.nav-links a.active::after { width: 100%; background: var(--green); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--brown-dark); transition: all .25s; }
