@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta name="designer" content="Kerem A." />
   <link rel="stylesheet" href="style.css" />
 
   <script type="application/ld+json">
@@ -50,6 +51,9 @@
 </head>
 <body class="page-loading">
 
+  <!-- Scroll progress bar -->
+  <div id="scrollProgress" aria-hidden="true"></div>
+
   <!-- ============================
        NAVIGATION
        ============================ -->
@@ -67,8 +71,6 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#apropos">À propos</a></li>
-        <li><a href="#produits">Nos spécialités</a></li>
-        <li><a href="#salon">Salon de thé</a></li>
         <li><a href="#localisation">Localisation</a></li>
         <li><a href="#avis">Avis</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -220,20 +222,7 @@
         <p>Chaque commande est préparée avec soin, dans les mêmes conditions artisanales que nos produits du quotidien. Contactez-nous pour discuter de votre projet.</p>
         <a href="#contact" class="btn btn-dark" style="margin-top: 8px;">Faire une demande</a>
       </div>
-      <div class="commandes-icon">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="30" y="72" width="60" height="28" rx="6" fill="#f0e8d8" stroke="#8b6240" stroke-width="2"/>
-          <rect x="38" y="48" width="44" height="26" rx="5" fill="#faf6f0" stroke="#8b6240" stroke-width="2"/>
-          <rect x="46" y="28" width="28" height="22" rx="4" fill="#f0e8d8" stroke="#8b6240" stroke-width="2"/>
-          <rect x="54" y="18" width="4" height="12" rx="2" fill="#c97a20"/>
-          <rect x="62" y="18" width="4" height="12" rx="2" fill="#4a8018"/>
-          <ellipse cx="56" cy="16" rx="2.5" ry="3.5" fill="#E8820C" opacity=".9"/>
-          <ellipse cx="64" cy="16" rx="2.5" ry="3.5" fill="#E8820C" opacity=".9"/>
-          <circle cx="45" cy="84" r="3" fill="#c97a20"/>
-          <circle cx="60" cy="84" r="3" fill="#4a8018"/>
-          <circle cx="75" cy="84" r="3" fill="#c97a20"/>
-        </svg>
-      </div>
+
     </div>
   </section>
 
@@ -440,7 +429,8 @@
   <!-- ============================
        FOOTER
        ============================ -->
-  <footer class="footer">
+  <!-- Site designed & developed by Kerem A. — kerem.dev -->
+  <footer class="footer" data-crafted-by="Kerem A.">
     <div class="container footer-inner">
       <div class="footer-brand">
         <p class="footer-name">Les Délices de Lectoure</p>
@@ -448,6 +438,9 @@
         <p>15 rue Alsace Lorraine<br />32700 Lectoure, France</p>
         <p><a href="tel:+33562687995">05 62 68 79 95</a></p>
         <p><a href="mailto:croustipain2002@gmail.com">croustipain2002@gmail.com</a></p>
+      </div>
+      <div class="footer-center">
+        <img class="footer-logo" src="assets/logo.png" alt="Les Délices de Lectoure" />
       </div>
       <div class="footer-social">
         <p>Suivez-nous</p>
@@ -461,8 +454,43 @@
         </div>
       </div>
     </div>
-    <p class="footer-copy">© 2025 Les Délices de Lectoure — EURL Croustipain. Tous droits réservés.</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Les Délices de Lectoure — EURL Croustipain. Tous droits réservés.</p>
+      <button class="footer-legal-link" id="openMentions">Mentions légales</button>
+    </div>
   </footer>
+
+  <!-- ============================
+       MENTIONS LÉGALES MODAL
+       ============================ -->
+  <div class="modal-backdrop" id="mentionsModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeMentions" aria-label="Fermer">✕</button>
+      <h2 class="modal-title" id="modalTitle">Mentions légales</h2>
+
+      <div class="modal-body">
+        <h3>Éditeur du site</h3>
+        <p>EURL Croustipain<br />
+        15 rue Alsace Lorraine, 32700 Lectoure, France<br />
+        Tél. : 05 62 68 79 95<br />
+        Email : croustipain2002@gmail.com</p>
+
+        <h3>Hébergement</h3>
+        <p>[Nom de l'hébergeur]<br />
+        [Adresse de l'hébergeur]<br />
+        [Site web de l'hébergeur]</p>
+
+        <h3>Propriété intellectuelle</h3>
+        <p>L'ensemble du contenu de ce site (textes, images, logos) est la propriété exclusive de l'EURL Croustipain. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+
+        <h3>Données personnelles</h3>
+        <p>Les données collectées via le formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant croustipain2002@gmail.com.</p>
+
+        <h3>Cookies</h3>
+        <p>Ce site n'utilise pas de cookies de traçage. Des cookies techniques peuvent être déposés par les services tiers intégrés (Google Maps, Facebook).</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Sticky call button (mobile only) -->
   <a href="tel:+33562687995" class="sticky-call" aria-label="Appeler la boulangerie">

@@ -16,6 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navbar = document.getElementById('navbar');
 
+  /* ── SCROLL PROGRESS BAR ── */
+  const progressBar = document.getElementById('scrollProgress');
+  function updateProgress() {
+    const scrollTop  = window.pageYOffset;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+
+  /* ── MENTIONS LÉGALES MODAL ── */
+  const modal       = document.getElementById('mentionsModal');
+  const openBtn     = document.getElementById('openMentions');
+  const closeBtn    = document.getElementById('closeMentions');
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openBtn)  openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal)    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+
   /* ── NAVBAR: shadow on scroll ── */
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
