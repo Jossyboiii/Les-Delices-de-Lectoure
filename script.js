@@ -160,4 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
+
+  /* ── OPENING STATUS BADGE ──
+     Closed Tuesday. Open 06:30–19:30 all other days.
+     Uses local browser time — accurate enough for a local business. */
+  const statusEl = document.getElementById('openStatus');
+  if (statusEl) {
+    const now     = new Date();
+    const day     = now.getDay(); // 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
+    const minutes = now.getHours() * 60 + now.getMinutes();
+    const opens   = 6 * 60 + 30;  // 06:30
+    const closes  = 19 * 60 + 30; // 19:30
+    const isOpen  = day !== 2 && minutes >= opens && minutes < closes;
+
+    statusEl.textContent = isOpen ? 'Ouvert' : 'Fermé';
+    statusEl.classList.add(isOpen ? 'is-open' : 'is-closed');
+  }
+
 });

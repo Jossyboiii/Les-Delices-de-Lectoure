@@ -11,6 +11,8 @@
   <meta property="og:title" content="Les Délices de Lectoure — Boulangerie artisanale" />
   <meta property="og:description" content="Pains, viennoiseries et pâtisseries artisanales au cœur de Lectoure, Gers." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lesdelicesdelectoure.fr/assets/logo.png" />
+  <meta property="og:url" content="https://lesdelicesdelectoure.fr/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -203,7 +205,10 @@
           </div>
 
           <table class="horaires-table">
-            <caption>Nos horaires d'ouverture</caption>
+            <caption>
+              Nos horaires d'ouverture
+              <span id="openStatus" class="open-status"></span>
+            </caption>
             <tbody>
               <tr><td>Lundi</td>    <td>6h30 – 19h30</td></tr>
               <tr class="closed"><td>Mardi</td>    <td>Fermé</td></tr>
@@ -338,7 +343,7 @@
       </div>
 
       <!-- Wire to Formspree: sign up at formspree.io, get a form ID, replace the action URL -->
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/PASTE_YOUR_FORMSPREE_ID" method="POST">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mdaplved" method="POST">
         <div class="form-group">
           <label for="name">Nom</label>
           <input type="text" id="name" name="name" placeholder="Votre nom" required />
@@ -351,7 +356,6 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
         </div>
-        <!-- reCAPTCHA v2 — replace data-sitekey with your own key from https://www.google.com/recaptcha/admin -->
         <div class="g-recaptcha" data-sitekey="6Leg1aMsAAAAAJ29f6KHtar0KmLrYe2dOgBD0mlN" style="margin-bottom:8px;"></div>
         <button type="submit" class="btn btn-dark btn-full">Envoyer le message</button>
         <p class="form-success" id="formSuccess">Message envoyé ! Nous vous répondrons rapidement.</p>
@@ -386,6 +390,11 @@
     </div>
     <p class="footer-copy">© 2025 Les Délices de Lectoure — EURL Croustipain. Tous droits réservés.</p>
   </footer>
+
+  <!-- Sticky call button (mobile only) -->
+  <a href="tel:+33562687995" class="sticky-call" aria-label="Appeler la boulangerie">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18C.01.11.99.01 2.07.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91A16 16 0 0014.09 15l.41-.41a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
 
   <!-- Google reCAPTCHA v2 -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
