@@ -982,7 +982,7 @@ a    { color: inherit; text-decoration: none; }
    ================================================ */
 #scrollProgress {
   position: fixed;
-  top: var(--nav-h);
+  top: calc(var(--nav-h) - 2px);
   left: 0;
   height: 2px;
   width: 0%;
