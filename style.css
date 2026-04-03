@@ -1110,6 +1110,7 @@ a    { color: inherit; text-decoration: none; }
   .salon-features   { gap: 8px; }
   .pourquoi-grid    { grid-template-columns: 1fr 1fr; }
   .modal-box        { padding: 32px 24px; }
+  .salon-inner      { padding-left: 24px; padding-right: 24px; }
 }
 
 @media (max-width: 480px) {
