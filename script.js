@@ -2,44 +2,6 @@
    Les Délices de Lectoure — JavaScript
    ================================================ */
 
-/* ── Page load fade-in ── */
-/* ── GRAIN TEXTURE ── */
-(function () {
-  const canvas = document.getElementById('grainCanvas');
-  if (!canvas) return;
-  const size = 200;
-  canvas.width  = size;
-  canvas.height = size;
-  canvas.style.width  = '100vw';
-  canvas.style.height = '100vh';
-  const ctx = canvas.getContext('2d');
-  const img = ctx.createImageData(size, size);
-  for (let i = 0; i < img.data.length; i += 4) {
-    const v = Math.random() * 255 | 0;
-    img.data[i]     = v;
-    img.data[i + 1] = v;
-    img.data[i + 2] = v;
-    img.data[i + 3] = 255;
-  }
-  ctx.putImageData(img, 0, 0);
-  // Tile it as a CSS background instead — more performant
-  canvas.style.display = 'none';
-  document.body.style.setProperty('--grain-url', `url(${canvas.toDataURL()})`);
-  // Apply via a style tag
-  const style = document.createElement('style');
-  style.textContent = `body::after { content:''; position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:.06; background-image:var(--grain-url); background-size:200px 200px; mix-blend-mode:multiply; }`;
-  document.head.appendChild(style);
-})();
-
-window.addEventListener('load', () => {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.body.classList.remove('page-loading');
-      document.body.classList.add('page-loaded');
-    });
-  });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
 
   const navbar = document.getElementById('navbar');
@@ -53,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar.style.width = pct + '%';
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
 
 
   /* ── MENTIONS LÉGALES MODAL ── */
@@ -192,23 +155,32 @@ document.addEventListener('DOMContentLoaded', () => {
     '.pourquoi-card, .salon-content'
   );
 
+  function revealEl(el) {
+    el.style.opacity   = '1';
+    el.style.transform = 'translateY(0)';
+  }
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity   = '1';
-        entry.target.style.transform = 'translateY(0)';
+        revealEl(entry.target);
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   revealEls.forEach((el, i) => {
-    el.style.opacity    = '0';
-    el.style.transform  = 'translateY(24px)';
-    // Stagger pourquoi cards slightly
     const delay = el.classList.contains('pourquoi-card') ? `${(i % 5) * 0.08}s` : '0s';
     el.style.transition = `opacity 0.55s ease ${delay}, transform 0.55s ease ${delay}`;
-    revealObserver.observe(el);
+    // If already in viewport on load, reveal immediately without observer
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      revealEl(el);
+    } else {
+      el.style.opacity   = '0';
+      el.style.transform = 'translateY(24px)';
+      revealObserver.observe(el);
+    }
   });
 
 

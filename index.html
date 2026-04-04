@@ -49,12 +49,10 @@
   }
   </script>
 </head>
-<body class="page-loading">
+<body>
 
   <!-- Scroll progress bar -->
   <div id="scrollProgress" aria-hidden="true"></div>
-  <!-- Grain texture canvas -->
-  <canvas id="grainCanvas" aria-hidden="true"></canvas>
 
   <!-- ============================
        NAVIGATION
@@ -98,9 +96,6 @@
     </div>
   </section>
 
-  <!-- ============================
-       SECTION 2 — À PROPOS (Histoire + Pourquoi nous choisir)
-       ============================ -->
   <section id="apropos" class="apropos">
     <div class="container apropos-inner">
       <div class="apropos-text">
@@ -175,9 +170,10 @@
     </div>
   </section>
 
-  <!-- ============================
-       SECTION 3 — SPÉCIALITÉS
-       ============================ -->
+  <div class="wave-divider wave-apropos-to-produits" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,55 C120,10 300,80 480,35 C660,0 840,75 1020,40 C1200,10 1350,70 1440,45 L1440,90 L0,90 Z" fill="var(--cream)"/></svg>
+  </div>
+
   <section id="produits" class="produits">
     <div class="container">
       <p class="section-eyebrow centered-eyebrow">Nos spécialités</p>
@@ -303,9 +299,10 @@
     </div>
   </section>
 
-  <!-- ============================
-       SECTION 6 — AVIS CLIENTS
-       ============================ -->
+  <div class="wave-divider wave-localisation-to-avis" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,20 C150,75 330,5 540,55 C720,90 900,15 1080,60 C1260,88 1380,25 1440,50 L1440,90 L0,90 Z" fill="var(--beige)"/></svg>
+  </div>
+
   <section id="avis" class="avis">
     <div class="container avis-centered">
       <p class="section-eyebrow centered-eyebrow">Ce que disent nos clients</p>
@@ -348,9 +345,10 @@
     </div>
   </section>
 
-  <!-- ============================
-       SECTION 7 — CONTACT
-       ============================ -->
+  <div class="wave-divider wave-avis-to-contact" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,60 C180,15 360,80 600,30 C780,0 960,70 1140,35 C1320,5 1400,65 1440,40 L1440,90 L0,90 Z" fill="var(--cream)"/></svg>
+  </div>
+
   <section id="contact" class="contact">
     <div class="container contact-inner">
 
@@ -364,7 +362,7 @@
           </div>
           <div class="contact-item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:croustipain2002@gmail.com">croustipain2002@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#680b1a071d1b1c01180901065a58585a280f05090104460b0705"><span class="__cf_email__" data-cfemail="2546574a5056514c55444c4b17151517654248444c490b464a48">[email&#160;protected]</span></a>
           </div>
           <div class="contact-item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -393,9 +391,10 @@
     </div>
   </section>
 
-  <!-- ============================
-       SECTION 8 — FACEBOOK (last)
-       ============================ -->
+  <div class="wave-divider wave-contact-to-facebook" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C200,80 420,5 660,55 C840,88 1020,10 1200,50 C1320,75 1400,30 1440,45 L1440,90 L0,90 Z" fill="var(--beige)"/></svg>
+  </div>
+
   <section id="facebook" class="facebook">
     <div class="container">
       <div class="facebook-inner">
@@ -439,7 +438,7 @@
         <p>EURL Croustipain</p>
         <p>15 rue Alsace Lorraine<br />32700 Lectoure, France</p>
         <p><a href="tel:+33562687995">05 62 68 79 95</a></p>
-        <p><a href="mailto:croustipain2002@gmail.com">croustipain2002@gmail.com</a></p>
+        <p><a href="/cdn-cgi/l/email-protection#e487968b9197908d94858d8ad6d4d4d6a48389858d88ca878b89"><span class="__cf_email__" data-cfemail="e88b9a879d9b9c8198898186dad8d8daa88f85898184c68b8785">[email&#160;protected]</span></a></p>
       </div>
       <div class="footer-center">
         <img class="footer-logo" src="assets/logo.png" alt="Les Délices de Lectoure" />
@@ -475,7 +474,7 @@
         <p>EURL Croustipain<br />
         15 rue Alsace Lorraine, 32700 Lectoure, France<br />
         Tél. : 05 62 68 79 95<br />
-        Email : croustipain2002@gmail.com</p>
+        Email : <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b3829342e282f322b3a3235696b6b691b3c363a323775383436">[email&#160;protected]</a></p>
 
         <h3>Hébergement</h3>
         <p>[Nom de l'hébergeur]<br />
@@ -486,7 +485,7 @@
         <p>L'ensemble du contenu de ce site (textes, images, logos) est la propriété exclusive de l'EURL Croustipain. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
 
         <h3>Données personnelles</h3>
-        <p>Les données collectées via le formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant croustipain2002@gmail.com.</p>
+        <p>Les données collectées via le formulaire de contact (nom, email, message) sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="472435283234332e37262e297577777507202a262e2b6924282a">[email&#160;protected]</a>.</p>
 
         <h3>Cookies</h3>
         <p>Ce site n'utilise pas de cookies de traçage. Des cookies techniques peuvent être déposés par les services tiers intégrés (Google Maps, Facebook).</p>
@@ -495,10 +494,10 @@
   </div>
 
   <!-- Sticky call button (mobile only) -->
-  <a href="tel:+33562687995" class="sticky-call" aria-label="Appeler la boulangerie">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18C.01.11.99.01 2.07.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91A16 16 0 0014.09 15l.41-.41a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+  <a href="tel:+33562687995" class="sticky-call" aria-label="Appel">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18C.01.11.99.01 2.07.01h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91A16 16 0 0014.09 15l.41-.41a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
   </a>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
